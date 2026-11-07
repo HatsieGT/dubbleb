@@ -64,6 +64,8 @@ p{margin:0 0 1rem;max-width:40rem}
 .kind{color:var(--lit);font-weight:600;font-size:1.15rem;margin-bottom:1.5rem}
 .hl{padding-left:1.1rem;margin:.75rem 0 0;max-width:40rem}
 .hl li{margin-bottom:.6rem}
+.go a.gold{border-color:#d4af37;box-shadow:0 0 18px rgba(212,175,55,.35),inset 0 0 0 1px rgba(212,175,55,.5)}
+section.gold{padding:clamp(1.5rem,5vw,3rem);margin-top:1rem;border:3px solid #d4af37!important;border-radius:24px;box-shadow:0 0 28px rgba(212,175,55,.35)}
 .versus{display:grid;grid-template-columns:1fr 1fr;margin-top:2rem;border-radius:20px;overflow:hidden}
 .side{padding:clamp(1.5rem,4vw,2.5rem)}
 .sane{background:var(--white);color:#111}
@@ -225,15 +227,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     {id:'tools-hiking',name:'Tools Hiking',kind:'VR climbing game',body:['Collect coins, spend them on tools, and climb. Every tool attaches to your Multitool, and each one changes how you reach, grip and grab surfaces.'],hl:['Tools include the Crowbar, Pickaxe, Axe, Sword and Wrench','Each tool has its own reach and grip stats','Different surfaces can be climbed in different ways','Made with Krown Games and Hiddenware']},
     {id:'turn',name:'TURN',kind:'Undertale-inspired RPG',body:['An indie RPG in the spirit of Undertale, starring Pepper. Fights use the TEMPO combat system and an Undertale-style battle UI.'],hl:['Built in Unity 6','Started as a Python prototype before moving to Unity','Enemies built as reusable ScriptableObjects','A story bible spanning five chapters']},
     {id:'chess-squared',name:'Chess²',kind:'Chess game concept',body:['A chess AI that always cheats. There is exactly one hidden path to beating it.'],hl:['100 endings','One of them is a crash-and-rebuild good ending']},
-    {id:'gr33d',name:'GR33D',kind:'Minecraft mod',body:['The sky wants something valuable. Give it items early and it stays friendly. Hold out and it turns aggressive. It listens through Simple Voice Chat, so it reacts to what you say.','There is no visible mob. When its anger gets too high, items fall from the sky and natural disasters hit.'],hl:['Reacts to player voice through Simple Voice Chat','Escalates from friendly to aggressive','Optional multiplayer through Essential']}
+    {id:'gr33d',name:'GR33D',kind:'Minecraft mod',body:['The sky wants something valuable. Give it items early and it stays friendly. Hold out and it turns aggressive. It listens through Simple Voice Chat, so it reacts to what you say.','There is no visible mob. When its anger gets too high, items fall from the sky and natural disasters hit.'],hl:['Reacts to player voice through Simple Voice Chat','Escalates from friendly to aggressive','Optional multiplayer through Essential']},
+    {id:'gobblen',name:'Gobblen',kind:'Game',gold:true,body:['More details soon.']},
+    {id:'mush',name:'Mush',kind:'Game',body:['More details soon.']}
   ],host=document.getElementById('games'),grid=document.getElementById('archiveGrid'),gameIds=[];
   G.forEach(function(g){
     gameIds.push(g.id);
     var s=document.createElement('div');
     s.className='page';s.id=g.id;s.setAttribute('data-page','');
-    s.innerHTML='<section style="border:0"><a class="back" href="#archive">Back to archive</a><p class="tag">Discontinued</p><h2>'+g.name+'</h2><p class="kind">'+g.kind+'</p>'+g.body.map(function(t){return '<p>'+t+'</p>'}).join('')+'<h3>Highlights</h3><ul class="hl">'+g.hl.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul></section>';
+    s.innerHTML='<section class="'+(g.gold?'gold':'')+'" style="border:0"><a class="back" href="#archive">Back to archive</a><p class="tag">Discontinued</p><h2>'+g.name+'</h2><p class="kind">'+g.kind+'</p>'+g.body.map(function(t){return '<p>'+t+'</p>'}).join('')+(g.hl?'<h3>Highlights</h3><ul class="hl">'+g.hl.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>':'')+'</section>';
     host.appendChild(s);
     var a=document.createElement('a');
+    if(g.gold)a.className='gold';
     a.href='#'+g.id;
     a.innerHTML='<b>'+g.name+'</b><span>'+g.kind+'</span><br><em>Discontinued</em>';
     grid.appendChild(a);
