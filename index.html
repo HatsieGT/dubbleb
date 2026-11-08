@@ -158,13 +158,12 @@
     {id:'tools-hiking',name:'Tools Hiking',kind:'VR climbing game',body:['Collect coins, spend them on tools, and climb. Every tool attaches to your Multitool, and each one changes how you reach, grip and grab surfaces.'],hl:['Tools include the Crowbar, Pickaxe, Axe, Sword and Wrench','Each tool has its own reach and grip stats','Different surfaces can be climbed in different ways','Made with Krown Games and Hiddenware']},
     {id:'turn',name:'TURN',kind:'Undertale-inspired RPG',body:['An indie RPG in the spirit of Undertale, starring Pepper. Fights use the TEMPO combat system and an Undertale-style battle UI.'],hl:['Built in Unity 6','Started as a Python prototype before moving to Unity','Enemies built as reusable ScriptableObjects','A story bible spanning five chapters']},
     {id:'chess-squared',name:'Chess\u00b2',kind:'Chess game concept',body:['A chess AI that always cheats. There is exactly one hidden path to beating it.'],hl:['100 endings','One of them is a crash-and-rebuild good ending']},
-    {id:'gr33d',name:'GR33D',kind:'Minecraft mod',body:['The sky wants something valuable. Give it items early and it stays friendly. Hold out and it turns aggressive. It listens through Simple Voice Chat, so it reacts to what you say.','There is no visible mob. When its anger gets too high, items fall from the sky and natural disasters hit.'],hl:['Reacts to player voice through Simple Voice Chat','Escalates from friendly to aggressive','Optional multiplayer through Essential']},
-    {id:'gobblen',name:'Gobblen',kind:'Game',gold:true,body:['More details soon.']},
-    {id:'mush',name:'Mush',kind:'Game',body:['More details soon.']}
+    {id:'gobblen',name:'Gobblen',kind:'Game',gold:true,body:['A hangout game.']},
+    {id:'mush',name:'Mush',kind:'Game',body:['A horror game.']}
   ],host=document.getElementById('games'),grid=document.getElementById('archiveGrid'),gameIds=[];
-  var D={'tools-hiking':'A VR climbing game where you spend coins on tools that attach to your Multitool.','turn':'An Undertale-inspired RPG built in Unity 6, starring Pepper.','chess-squared':'A chess AI that always cheats, with one hidden path to victory and 100 endings.','gr33d':'A Minecraft mod where the sky demands valuable items and turns on you if you hold out.'};
+  var D={'tools-hiking':'A VR climbing game where you spend coins on tools that attach to your Multitool.','turn':'An Undertale-inspired RPG built in Unity 6, starring Pepper.','chess-squared':'A chess AI that always cheats, with one hidden path to victory and 100 endings.'};
   G.forEach(function(g,n){
-    var a=document.createElement('div'),c=g.id==='chess-squared'||g.id==='gr33d';
+    var a=document.createElement('div'),c=g.id==='chess-squared';
     if(g.gold)a.className='gold';
     a.setAttribute('data-n','0'+(n+1));
     a.innerHTML='<b>'+g.name+'</b><span>'+g.kind+'</span><p>'+(D[g.id]||g.body[0])+'</p><em'+(c?' class="cn"':'')+'>'+(c?'Concept':'Discontinued')+'</em>';
